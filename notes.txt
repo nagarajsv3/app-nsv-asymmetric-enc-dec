@@ -1,0 +1,25 @@
+Theory:
+https://www.pearsonitcertification.com/articles/article.aspx?p=1680706
+
+Generating Keys on Windows
+https://www.ssh.com/ssh/putty/windows/puttygen
+https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+https://docs.joyent.com/public-cloud/getting-started/ssh-keys/generating-an-ssh-key-manually/manually-generating-your-ssh-key-in-windows
+
+RSA Encryption Decryption online
+https://www.devglan.com/online-tools/rsa-encryption-decryption
+
+RSA Encryption
+https://www.devglan.com/java8/rsa-encryption-decryption-java
+https://javadigest.wordpress.com/2012/08/26/rsa-encryption-example/
+https://www.thejavaprogrammer.com/rsa-algorithm-in-java/
+https://scanftree.com/programs/java/implementation-of-rsa-algorithmencryption-and-decryption-in-java/
+
+https://github.com/anujpatel/RSA-Algorithm/blob/master/RSAEncryptionDescription.java
+https://github.com/only2dhir/rsaencryption/tree/master/src/main/java/com/devglan/rsa
+https://github.com/ibercode/RSAEncryptionDecryptionJava/tree/master/RSAEncDec/src/com/ibercode
+https://github.com/roytuts/java/tree/master/rsa-encryption-decryption/src/main/java/com/roytuts/rsa
+https://gist.github.com/mobynote
+https://www.novixys.com/blog/rsa-file-encryption-decryption-java/
+
+Notes
