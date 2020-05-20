@@ -15,12 +15,13 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 
 import static com.nsv.jsmbaba.rsa.AppConstants.RSA;
-import static com.nsv.jsmbaba.rsa.AppConstants.RSA_ECB_PKCS1Padding;
+import static com.nsv.jsmbaba.rsa.AppConstants.RSA_ECB_PKCS1Padding_CIPHER;
 
 @Getter
 @Setter
 @ToString
 public class RSAUtils {
+
 
     /*
     * X509EncodedKeySpec class to convert public key in X509 format to RSA public key
@@ -44,7 +45,7 @@ public class RSAUtils {
     * encrypt()that takes the string to be enrypted and the Base64 encoded RSA key for encryption
     * */
     public static byte[] encrypt(String data, String base64PublicKey) throws BadPaddingException, IllegalBlockSizeException, InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException {
-        Cipher cipher = Cipher.getInstance(RSA_ECB_PKCS1Padding);
+        Cipher cipher = Cipher.getInstance(RSA_ECB_PKCS1Padding_CIPHER);
         cipher.init(Cipher.ENCRYPT_MODE, getPublicKey(base64PublicKey));
         return cipher.doFinal(data.getBytes());
     }
@@ -58,7 +59,7 @@ public class RSAUtils {
         PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(Base64.getDecoder().decode(base64PrivateKey.getBytes()));
         KeyFactory keyFactory = null;
         try {
-            keyFactory = KeyFactory.getInstance(RSA);
+            keyFactory = KeyFactory.getInstance("RSA");
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
@@ -71,7 +72,7 @@ public class RSAUtils {
     }
 
     public static String decrypt(byte[] data, PrivateKey privateKey) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
-        Cipher cipher = Cipher.getInstance(RSA_ECB_PKCS1Padding);
+        Cipher cipher = Cipher.getInstance(RSA_ECB_PKCS1Padding_CIPHER);
         cipher.init(Cipher.DECRYPT_MODE, privateKey);
         return new String(cipher.doFinal(data));
     }

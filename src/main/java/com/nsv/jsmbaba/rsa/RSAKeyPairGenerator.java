@@ -37,8 +37,8 @@ public class RSAKeyPairGenerator {
 
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
         RSAKeyPairGenerator keyPairGenerator = new RSAKeyPairGenerator();
-        keyPairGenerator.writeToFile("C:\\Nagaraj\\Key\\RSA\\publicKey", keyPairGenerator.getPublicKey().getEncoded());
-        keyPairGenerator.writeToFile("C:\\Nagaraj\\Key\\RSA\\privateKey", keyPairGenerator.getPrivateKey().getEncoded());
+        keyPairGenerator.writeToFile("C:\\Users\\JSMBABA\\IdeaProjects\\Appi\\app-nsv-asymmetric-enc-dec\\src\\main\\resources\\qa\\publicKey", keyPairGenerator.getPublicKey().getEncoded());
+        keyPairGenerator.writeToFile("C:\\Users\\JSMBABA\\IdeaProjects\\Appi\\app-nsv-asymmetric-enc-dec\\src\\main\\resources\\qa\\privateKey", keyPairGenerator.getPrivateKey().getEncoded());
         System.out.println("Public Key=\n"+keyPairGenerator.getPublicKey());
         System.out.println("\n**************************************************************************************");
         System.out.println("Private Key=\n"+keyPairGenerator.getPrivateKey());
