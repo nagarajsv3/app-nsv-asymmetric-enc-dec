@@ -1,0 +1,21 @@
+JWT Overview
+https://www.youtube.com/watch?v=soGRyl9ztjI&t=14s - Done
+
+JWT Structure
+https://www.youtube.com/watch?v=_XbXkVdoG_0 - Done
+
+JWT Implementation
+https://www.youtube.com/watch?v=X80nJ5T7YpE
+
+https://www.youtube.com/watch?v=3pZ3Nh8tgTE
+
+https://www.youtube.com/results?search_query=jSON+WEB+ENCRYPTION+JAVA+EXAMPLES
+https://www.youtube.com/watch?v=7Q17ubqLfaM
+https://www.youtube.com/watch?v=9ae68fV1zZM
+https://www.youtube.com/watch?v=BzZi_kfnaWc
+https://www.youtube.com/watch?v=XS9w0SkKrFk
+https://www.youtube.com/watch?v=O-sTJbeUagE
+https://www.youtube.com/watch?v=rBNOc4ymd1E
+https://www.youtube.com/watch?v=-HYrUs1ZCLI
+https://www.youtube.com/watch?v=p6MXb0GtXwg
+https://www.youtube.com/watch?v=926mknSW9Lo

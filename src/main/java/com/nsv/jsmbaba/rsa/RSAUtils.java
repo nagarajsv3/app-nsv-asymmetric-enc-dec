@@ -24,6 +24,22 @@ public class RSAUtils {
 
 
     /*
+     *  code to generate the private key from base64 encoded string using PKCS8EncodedKeySpec
+     * */
+    public static PrivateKey getPrivateKey(String base64PrivateKey){
+        PrivateKey privateKey = null;
+        try {
+            PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(Base64.getDecoder().decode(base64PrivateKey.getBytes()));
+            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            privateKey = keyFactory.generatePrivate(keySpec);
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+            e.printStackTrace();
+        }
+        return privateKey;
+    }
+
+
+    /*
     * X509EncodedKeySpec class to convert public key in X509 format to RSA public key
     * */
     public static PublicKey getPublicKey(String base64PublicKey){
@@ -32,10 +48,7 @@ public class RSAUtils {
             X509EncodedKeySpec keySpec = new X509EncodedKeySpec(Base64.getDecoder().decode(base64PublicKey.getBytes()));
             KeyFactory keyFactory = KeyFactory.getInstance(RSA);
             publicKey = keyFactory.generatePublic(keySpec);
-            return publicKey;
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (InvalidKeySpecException e) {
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
             e.printStackTrace();
         }
         return publicKey;
@@ -51,25 +64,6 @@ public class RSAUtils {
     }
 
 
-    /*
-    *  code to generate the private key from base64 encoded string using PKCS8EncodedKeySpec
-    * */
-    public static PrivateKey getPrivateKey(String base64PrivateKey){
-        PrivateKey privateKey = null;
-        PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(Base64.getDecoder().decode(base64PrivateKey.getBytes()));
-        KeyFactory keyFactory = null;
-        try {
-            keyFactory = KeyFactory.getInstance("RSA");
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        try {
-            privateKey = keyFactory.generatePrivate(keySpec);
-        } catch (InvalidKeySpecException e) {
-            e.printStackTrace();
-        }
-        return privateKey;
-    }
 
     public static String decrypt(byte[] data, PrivateKey privateKey) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
         Cipher cipher = Cipher.getInstance(RSA_ECB_PKCS1Padding_CIPHER);

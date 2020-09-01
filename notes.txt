@@ -1,5 +1,91 @@
+RSA Encryption
+https://www.devglan.com/java8/rsa-encryption-decryption-java
+https://mkyong.com/java/java-asymmetric-cryptography-example/?utm_source=mkyong.com&utm_medium=referral&utm_campaign=sidebar-related&utm_content=link2
+
 Theory:
 https://www.pearsonitcertification.com/articles/article.aspx?p=1680706
+
+Java Cryptograhy API / Java Crypto API
+http://tutorials.jenkov.com/java-cryptography/index.html
+
+Generating Keys on Windows
+https://www.ssh.com/ssh/putty/windows/puttygen
+https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+https://docs.joyent.com/public-cloud/getting-started/ssh-keys/generating-an-ssh-key-manually/manually-generating-your-ssh-key-in-windows
+
+RSA Encryption Decryption online
+https://www.devglan.com/online-tools/rsa-encryption-decryption
+
+RSA Encryption
+https://www.devglan.com/java8/rsa-encryption-decryption-java
+https://javadigest.wordpress.com/2012/08/26/rsa-encryption-example/
+https://www.thejavaprogrammer.com/rsa-algorithm-in-java/
+https://scanftree.com/programs/java/implementation-of-rsa-algorithmencryption-and-decryption-in-java/
+
+https://github.com/anujpatel/RSA-Algorithm/blob/master/RSAEncryptionDescription.java
+https://github.com/only2dhir/rsaencryption/tree/master/src/main/java/com/devglan/rsa
+https://github.com/ibercode/RSAEncryptionDecryptionJava/tree/master/RSAEncDec/src/com/ibercode
+https://github.com/roytuts/java/tree/master/rsa-encryption-decryption/src/main/java/com/roytuts/rsa
+https://gist.github.com/mobynote
+https://www.novixys.com/blog/rsa-file-encryption-decryption-java/
+
+Notes
+
+
+
+Videos
+Source 1: 6 Videos - Completed
+youtube.com/watch?v=uxyGJMBs2dI&list=PLSob6gvlzsCNMcpgsrQVSwvHcUIGMFu7x&index=4
+Source 2: 7 Videos:
+https://www.youtube.com/watch?v=bRBJ_0I919E&list=PL6TbWIxWsLY3XuAZB4C0_GxrR76TAZOf2
+https://www.youtube.com/watch?v=m3H2twEgEHQ&list=PL6TbWIxWsLY3XuAZB4C0_GxrR76TAZOf2&index=2 - in progress
+Source 5:
+https://www.youtube.com/watch?v=8CluknrLeys&list=PLbg3ZX2pWlgLoapF5VvM_8h5OR-XW9pbr
+Source 3:
+https://www.youtube.com/c/PrototypePrjs/playlists
+    Public Key Cryptosystem
+    Public Key Cryptography
+    Digital Signature
+Source 4:
+https://www.youtube.com/watch?v=t0F7fe5Alwg
+
+https://www.youtube.com/watch?v=AQDCe585Lnc&list=PLzvRQMJ9HDiSbvXWQ7OdgVccdr7Wni5Qw
+
+
+https://www.youtube.com/watch?v=GSIDS_lvRv4
+
+https://www.youtube.com/watch?v=efkAJ27fUa8
+https://www.youtube.com/watch?v=stsWa9A3sOM
+https://www.youtube.com/watch?v=vv4y_uOneC0
+
+Key Management
+https://www.youtube.com/watch?v=8lpWVONYFBg
+https://www.youtube.com/watch?v=pevdznOATSU
+https://www.youtube.com/watch?v=5OqgYSXWYQM
+
+
+How SSL TLS Works
+https://www.youtube.com/watch?v=iQsKdtjwtYI
+https://www.youtube.com/watch?v=T4Df5_cojAs
+https://www.youtube.com/watch?v=hExRDVZHhig
+https://www.youtube.com/watch?v=AlE5X1NlHgg
+
+
+Certificate Authority
+https://www.youtube.com/watch?v=8ItJ-VqYo_s
+
+X.509
+https://www.youtube.com/watch?v=JAgaWJivKwg
+https://www.youtube.com/watch?v=pM2raag4ukc
+
+************************************************************************************************8
+
+Java Cryptograhy API / Java Crypto API
+http://tutorials.jenkov.com/java-cryptography/index.html
+
+Theory:
+https://www.pearsonitcertification.com/articles/article.aspx?p=1680706
+
 
 Generating Keys on Windows
 https://www.ssh.com/ssh/putty/windows/puttygen

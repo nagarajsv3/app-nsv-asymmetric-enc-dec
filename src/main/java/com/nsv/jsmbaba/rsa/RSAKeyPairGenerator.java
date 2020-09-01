@@ -19,7 +19,7 @@ public class RSAKeyPairGenerator {
 
     public RSAKeyPairGenerator() throws NoSuchAlgorithmException {
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
-        keyGen.initialize(1024);
+        keyGen.initialize(2048);
         KeyPair pair = keyGen.generateKeyPair();
         this.privateKey = pair.getPrivate();
         this.publicKey = pair.getPublic();
@@ -37,14 +37,16 @@ public class RSAKeyPairGenerator {
 
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
         RSAKeyPairGenerator keyPairGenerator = new RSAKeyPairGenerator();
-        keyPairGenerator.writeToFile("C:\\Users\\JSMBABA\\IdeaProjects\\Appi\\app-nsv-asymmetric-enc-dec\\src\\main\\resources\\qa\\publicKey", keyPairGenerator.getPublicKey().getEncoded());
-        keyPairGenerator.writeToFile("C:\\Users\\JSMBABA\\IdeaProjects\\Appi\\app-nsv-asymmetric-enc-dec\\src\\main\\resources\\qa\\privateKey", keyPairGenerator.getPrivateKey().getEncoded());
+        keyPairGenerator.writeToFile("C:\\Users\\JSMBABA\\IdeaProjects\\Appi\\app-nsv-asymmetric-enc-dec\\src\\main\\resources\\qa\\2048\\publicKey", keyPairGenerator.getPublicKey().getEncoded());
+        keyPairGenerator.writeToFile("C:\\Users\\JSMBABA\\IdeaProjects\\Appi\\app-nsv-asymmetric-enc-dec\\src\\main\\resources\\qa\\2048\\privateKey", keyPairGenerator.getPrivateKey().getEncoded());
         System.out.println("Public Key=\n"+keyPairGenerator.getPublicKey());
         System.out.println("\n**************************************************************************************");
         System.out.println("Private Key=\n"+keyPairGenerator.getPrivateKey());
         System.out.println("\n**************************************************************************************");
+        System.out.println("Public Key Encoded=\n"+keyPairGenerator.getPublicKey().getEncoded().toString());
         System.out.println("Public Key Encoded=\n"+Base64.getEncoder().encodeToString(keyPairGenerator.getPublicKey().getEncoded()));
         System.out.println("\n**************************************************************************************");
+        System.out.println("Private Key Encoded=\n"+keyPairGenerator.getPrivateKey().getEncoded().toString());
         System.out.println("Private Key Encoded=\n"+Base64.getEncoder().encodeToString(keyPairGenerator.getPrivateKey().getEncoded()));
         System.out.println("\n**************************************************************************************");
 
