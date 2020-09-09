@@ -13,7 +13,7 @@ import java.util.Base64;
 
 import static com.nsv.jsmbaba.rsa.RSAUtils.encrypt;
 
-public class RSAEncDecMain {
+public class RSAMain {
 
     public static void main(String[] args) throws InvalidKeyException, BadPaddingException, NoSuchPaddingException, IllegalBlockSizeException {
 
@@ -26,11 +26,6 @@ public class RSAEncDecMain {
         String publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA9NDJyC/NyxIli5sPQxHyUGJRd9eTYoGUQNFJfkL/bb2LOffb/R0nangwUbnDMjfdsW8vEgXnEQq/Bap3Xz8LZP/uN2aS3iw2oMSWADXLiWt1Qk5PEREquOaihBIFfK9iC5RDzSPOgff37wMYD3UEGAuSb+s8hq/tD/Q0NDB9KCjjmz7GbsTrab6P4pyWPPBJqA01I0834tJ03VIaeyl44F0sKrLxJhLxgwKhL6R/myJT6Zte8MX+hNp6gGzKF0970j+bvq/X5HSihQUI1zVQ7cGUfPzidRD78u/T2Lfl3LTb2F7vZewwbyFlxalWnZqopiC7fD+64ECIjWpQiL6fJQIDAQAB";
         String privateKey = "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQD00MnIL83LEiWLmw9DEfJQYlF315NigZRA0Ul+Qv9tvYs599v9HSdqeDBRucMyN92xby8SBecRCr8FqndfPwtk/+43ZpLeLDagxJYANcuJa3VCTk8RESq45qKEEgV8r2ILlEPNI86B9/fvAxgPdQQYC5Jv6zyGr+0P9DQ0MH0oKOObPsZuxOtpvo/inJY88EmoDTUjTzfi0nTdUhp7KXjgXSwqsvEmEvGDAqEvpH+bIlPpm17wxf6E2nqAbMoXT3vSP5u+r9fkdKKFBQjXNVDtwZR8/OJ1EPvy79PYt+XctNvYXu9l7DBvIWXFqVadmqimILt8P7rgQIiNalCIvp8lAgMBAAECggEAOKRR+1IsIA7bxvgiSNdPJBALX1nuTL1EStbhVSg1JvPS0Z+qM17absTOESqUofrQ/SuHTXk2I/hDiBEPu2a/wSeBuymtU2ARZ5L0TaokpG/LWoL5wi4hn1QlR79Pq7B8U8eDBGSDdAimQZOKrpDZWKLcx646e8MaazWKGoUZf/+6BDp3qQOdlB6uulT2l5eBIS5sKXBUAan1L4GogRzY8oVIAjFWAl/Z+Yvno33n+H6NrkglunI/ZGc56t4F8D+KAEw6ZFlOqQZ8V6tFvM1AcJldProx6UcarkrCG6o8JqnT+wY06cFYvf4deErhhCAUv5kdjlInDN3kqt2Xiu7soQKBgQD/DGn7aGBatRzIeBF866bIdqrWmj4+VtHQ3rYk3Xg1a7BfQHmYXtjv8MlPS3jEU6X7dMXZe6Khd/9Z8n1Ee+foJZjYud4T+tNltszTdJzs/VO7LoM/1PV00dZ08i8wuWoTB3ASrGMUsXzBZhS/Gxwv06A60CQbY8QCbQsFrrfaiQKBgQD1upnoBa3YYRbmeyUO39STiIr8BjaVQsOGpMsQOk/dAJUNwVxgQysknS7iCIuAjX3UC1Ej1DDjwBPdvvt6fko2dwsamWE4wXICTXmKJ4m7T/DQgkPvloSCIAuAujFkCF0gJ8tBr9tsJlaZoPaRe3o4MuP1fychjdw1er5fJz4IvQKBgEgB8j4n1uRlM+4pcA6L3bfFQTB7tc0V6AEHj/dSi+jRMaeC5ZGuXaNIoR2BGmSblUYsTtu7O0xJO8/iVZmrPeteCgxOVbPgYiTaenPM/a0vTJ+RXz77Wh2UTO8RnV8tShR7ShoLj6G9BpL3xi26crfSEO/p6ffNr/5bWPxOutu5AoGBAJxthbxmoRy18dYXXqfxZWnl6lQ1wFmUftQf5AUYme6eiESRazT8jWJpjYbm2aekaw2phqXAVr8lb4AiLAT2kFfLwI3WRkXTH7jHiS+hq9RKN4sE4iqLLx+HNstjvD1p9Z6atpHCWXSnk0mJZm2GpW9RNjz6DPcXT6/by4TXfm4hAoGAK88eyEDHEM9oqrp/zHiK0r3spPg5GgR+30SKkQoG6KAWja3bO/kyz6IthAhNy2Jr9wgs1+MApw2BERvaIVU7/aGqXhazjT8Z8vYQbpipbj0H3hj5lC7anW+flxyXbEcLxNhk84INwPvwg3PGbLkNxuFmb1mtxG1CnRFf3dvaoUM=";
 
-        //byte[] publicKey1 = readPublicKey();
-        //String publicKey = publicKey1.toString();
-        //String privateKey = readPrivateKey();
-
-
         String message = "JSMBABA - Welcome to RSA Encryption Decryption";
         System.out.println("Original Message=\n"+message);
         System.out.println("\n*******************************************************");
@@ -38,7 +33,8 @@ public class RSAEncDecMain {
         try {
             byte[] encryptedBytes = RSAUtils.encrypt(message, publicKey);
             String encryptedString = Base64.getEncoder().encodeToString(encryptedBytes);
-            System.out.println("Cipher Text=\n"+encryptedString);
+            System.out.println("Cipher Text; Plain=\n"+encryptedBytes.toString());
+            System.out.println("Cipher Text; Base64Encoded=\n"+encryptedString);
             System.out.println("\n*******************************************************");
             String decryptedString = RSAUtils.decrypt(encryptedString, privateKey);
             System.out.println("Decrypted  Message=\n"+decryptedString);
@@ -50,6 +46,7 @@ public class RSAEncDecMain {
     }
 
 
+/*
     private static byte[] readPublicKey() {
         String fileName = "qa/publickey";
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
@@ -65,6 +62,7 @@ public class RSAEncDecMain {
 
         return null;
     }
+*/
 
 
 /*    private static String readPrivateKey() {
