@@ -18,6 +18,7 @@ import java.util.Base64;
 
 import static com.nsv.jsmbaba.rsa.AppConstants.RSA;
 import static com.nsv.jsmbaba.rsa.AppConstants.RSA_ECB_PKCS1Padding_CIPHER;
+import static com.nsv.jsmbaba.rsa.AppConstants.RSA_OEAP_256;
 
 @Getter
 @Setter
@@ -28,7 +29,7 @@ public class RSAUtils {
     /*
      *  code to generate the private key from base64 encoded string using PKCS8EncodedKeySpec
      * */
-    public static PrivateKey getPrivateKey(String base64EncodedPrivateKey){
+    public static PrivateKey getPrivateKey(String base64EncodedPrivateKey) {
         PrivateKey privateKey = null;
         try {
             PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(Base64.getDecoder().decode(base64EncodedPrivateKey.getBytes()));
@@ -41,13 +42,12 @@ public class RSAUtils {
     }
 
 
-
     /*
-    * X509EncodedKeySpec class to convert public key in X509 format to RSA public key
-    * */
-    public static PublicKey getPublicKey(String base64EncodedPublicKey){
+     * X509EncodedKeySpec class to convert public key in X509 format to RSA public key
+     * */
+    public static PublicKey getPublicKey(String base64EncodedPublicKey) {
         PublicKey publicKey = null;
-        try{
+        try {
             X509EncodedKeySpec keySpec = new X509EncodedKeySpec(Base64.getDecoder().decode(base64EncodedPublicKey.getBytes()));
             KeyFactory keyFactory = KeyFactory.getInstance(RSA);
             publicKey = keyFactory.generatePublic(keySpec);
@@ -59,6 +59,7 @@ public class RSAUtils {
 
     /**
      * Reads file content and creates a PrivateKey
+     *
      * @param filename
      * @return
      * @throws Exception
@@ -74,6 +75,7 @@ public class RSAUtils {
 
     /**
      * Reads file content and creates a PublicKey
+     *
      * @param filename
      * @return
      * @throws Exception
@@ -87,29 +89,36 @@ public class RSAUtils {
     }
 
     public static byte[] encrypt(byte[] data, PublicKey publicKey) throws BadPaddingException, IllegalBlockSizeException, InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException {
-        Cipher cipher = Cipher.getInstance(RSA);
+        Cipher cipher = Cipher.getInstance(RSA_OEAP_256);
         cipher.init(Cipher.ENCRYPT_MODE, publicKey);
         return cipher.doFinal(data);
     }
 
     public static byte[] encrypt(String data, PublicKey publicKey) throws BadPaddingException, IllegalBlockSizeException, InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException {
-        return encrypt(data.getBytes(),publicKey);
+        return encrypt(data.getBytes(), publicKey);
     }
 
     public static byte[] encrypt(String data, PublicKey publicKey, String format) throws BadPaddingException, IllegalBlockSizeException, InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException, UnsupportedEncodingException {
-        return encrypt(data.getBytes(format),publicKey);
+        return encrypt(data.getBytes(format), publicKey);
     }
 
     /*
-    * encrypt()that takes the string to be enrypted and the Base64 encoded RSA key for encryption
-    * */
+     * encrypt()that takes the string to be enrypted and the Base64 encoded RSA key for encryption
+     * */
     public static byte[] encrypt(String data, String base64EncodedPublicKey) throws BadPaddingException, IllegalBlockSizeException, InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException {
         return encrypt(data, getPublicKey(base64EncodedPublicKey));
     }
 
     public static String decrypt(byte[] data, PrivateKey privateKey) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
-        Cipher cipher = Cipher.getInstance(RSA);
+        Cipher cipher = Cipher.getInstance(RSA_OEAP_256);
         cipher.init(Cipher.DECRYPT_MODE, privateKey);
+
+/*
+    https://stackoverflow.com/questions/32161720/breaking-down-rsa-ecb-oaepwithsha-256andmgf1padding
+        Cipher oaepFromInit = Cipher.getInstance("RSA/ECB/OAEPPadding");
+        OAEPParameterSpec oaepParams = new OAEPParameterSpec("SHA-256", "MGF1", new MGF1ParameterSpec("SHA-1"), PSpecified.DEFAULT);
+        oaepFromInit.init(Cipher.DECRYPT_MODE, privkey, oaepParams);
+        */
         return new String(cipher.doFinal(data));
     }
 
@@ -118,7 +127,7 @@ public class RSAUtils {
     }
 
     public static void encryptFile(byte[] input, File outputFile, PublicKey key) throws IOException, GeneralSecurityException {
-        writeToFile(outputFile, encrypt(input,key));
+        writeToFile(outputFile, encrypt(input, key));
     }
 
     public static void decryptFile(byte[] input, File outputFile, PrivateKey key)
@@ -134,7 +143,7 @@ public class RSAUtils {
         fos.close();
     }
 
-     public static byte[] getFileInBytes(File f) throws IOException {
+    public static byte[] getFileInBytes(File f) throws IOException {
         FileInputStream fis = new FileInputStream(f);
         byte[] fbytes = new byte[(int) f.length()];
         fis.read(fbytes);

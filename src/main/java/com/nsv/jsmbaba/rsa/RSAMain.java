@@ -39,6 +39,7 @@ public class RSAMain {
             String decryptedString = RSAUtils.decrypt(encryptedString, privateKey);
             System.out.println("Decrypted  Message=\n"+decryptedString);
             System.out.println("\n*******************************************************");
+
         } catch (NoSuchAlgorithmException e) {
             System.err.println(e.getMessage());
         }
