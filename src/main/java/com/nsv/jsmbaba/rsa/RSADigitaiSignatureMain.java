@@ -63,6 +63,11 @@ public class RSADigitaiSignatureMain {
         PrivateKey privateKey = RSAUtils.getPrivateKey(privateKeyStriing);
         String algo = "RSA-OAEP-256"; // "PS256";
 
+
+        //https://stackoverflow.com/questions/53728536/how-to-sign-with-rsassa-pss-in-java-correctly
+        //http://javadoc.iaik.tugraz.at/iaik_jce/current/iaik/security/rsa/SHA256withRSAandMGF1Signature.html
+        //https://www.example-code.com/java/jws_rsa_pss_sha256.asp
+        //https://www.scottbrady91.com/C-Sharp/JWT-Signing-using-RSASSA-PSS-in-dotnet-Core
         Security.addProvider(new BouncyCastleProvider());
         byte[] signature = signPS256(algo, message, privateKey);
 
@@ -77,8 +82,7 @@ public class RSADigitaiSignatureMain {
     }
 
     //The method that signs the data using the private key that is stored in keyFile path
-    public static byte[] sign(String algo, String data, PrivateKey privateKey) throws InvalidKeyException, Exception{
-        //Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+    public static byte[] sign(String algo, String data, PrivateKey privateKey) throws InvalidKeyException, Exception{//Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
         //Signature rsa = java.security.Signature.getInstance("SHA256withRSAandMGF1");
         Signature rsa = java.security.Signature.getInstance(algo);
         rsa.initSign(privateKey);
@@ -88,10 +92,10 @@ public class RSADigitaiSignatureMain {
 
     //The method that signs the data using the private key that is stored in keyFile path
     public static byte[] signPS256(String algo, String data, PrivateKey privateKey) throws InvalidKeyException, Exception{
-        //Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
         //Signature rsa = java.security.Signature.getInstance("SHA256withRSAandMGF1");
         Signature rsa= Signature.getInstance("SHA256withRSA/PSS");
         rsa.setParameter(new PSSParameterSpec("SHA-256", "MGF1", MGF1ParameterSpec.SHA256, 32, 1));
+
         rsa.initSign(privateKey);
         rsa.update(data.getBytes());
         return rsa.sign();
@@ -110,6 +114,7 @@ public class RSADigitaiSignatureMain {
 
 
     public static boolean verifyPS256(String algo, String receivedMessage , PublicKey publicKey, byte[] receivedSignature) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException, InvalidAlgorithmParameterException {
+        //Signature rsa = java.security.Signature.getInstance("SHA256withRSAandMGF1");
         Signature rsa= Signature.getInstance("SHA256withRSA/PSS");
         rsa.setParameter(new PSSParameterSpec("SHA-256", "MGF1", MGF1ParameterSpec.SHA256, 32, 1));
         rsa.initVerify(publicKey);
